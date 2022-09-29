@@ -12,7 +12,9 @@ namespace Notes.Environment.Queries
     {
         public IEnumerable<TModel> Data { get; set; }
 
-        public static SelectState<TModel> Success(IEnumerable<TModel> data) => new SelectState<TModel>() { Data = data, State = StateType.finished};
+        public int? Count { get; set; }
+
+        public static SelectState<TModel> Success(IEnumerable<TModel> data, int? count = null) => new SelectState<TModel>() { Data = data, Count = count, State = StateType.finished};
 
         public static SelectState<TModel> Error(StatusCode errorCode, string errorMessage="") => new SelectState<TModel>() { ErrorCode = errorCode, ErrorMessage = errorMessage, State = StateType.error };
     }

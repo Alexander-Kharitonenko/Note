@@ -13,7 +13,9 @@ namespace Note.API.View.Users
                 .ForMember(dto => dto.Password,
                 opt => opt.MapFrom(model => model.Password))
                 .ForMember(dto => dto.Email,
-                opt => opt.MapFrom(model => model.Email));
+                opt => opt.MapFrom(model => model.Email))
+                .ForMember(dto => dto.id, 
+                opt => opt.MapFrom(model => model.Id));
         }
     }
 }

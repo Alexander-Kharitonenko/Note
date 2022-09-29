@@ -37,7 +37,7 @@
   </ItemGroup>
 
 <Target Name="NSwag" AfterTargets="Build">
-    <Exec Command="$(NSwagExe_Net60) run E:/myProject/notes/Business/Tools/Swagger/OpenApiDocumentation/nswag.json" />
+    <Exec Command="$(NSwagExe_Net60) run E:/noteProject/notes/Business/Tools/Swagger/OpenApiDocumentation/nswag.json" />
 </Target>
 
 </Project>

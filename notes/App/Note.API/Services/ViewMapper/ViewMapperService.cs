@@ -65,7 +65,7 @@ namespace Note.API.Services.ViewMapper
             if(result.State != StateType.error) 
             {
                 var resource = result.Data.Select(el => _mapper.Map<TModel, TResult>(el)).AsQueryable();
-                var viewResult = new ViewListModelDto<TResult>() { data = resource };
+                var viewResult = new ViewListModelDto<TResult>() { data = resource , Count = result.Count };
 
                 return new OkObjectResult(viewResult);
             }

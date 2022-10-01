@@ -37,7 +37,7 @@ namespace Commands.Notes.Create
 
             var note = new Note()
             {
-                UserId = 1,
+                UserId = request.UserId,
                 Titel = request.Title,
                 Detailse = request.Details,
                 CreateDate = DateTime.UtcNow,

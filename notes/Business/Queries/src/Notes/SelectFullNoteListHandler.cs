@@ -40,7 +40,7 @@ namespace Queries.Notes
                return SelectState<NoteModel>.Error(StatusCode.NoteNotFound);
             }
 
-            return SelectState<NoteModel>.Success(notes);
+            return SelectState<NoteModel>.Success(notes, notes.Count());
         }
     }
 }

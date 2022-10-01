@@ -11,7 +11,9 @@ namespace Note.API.View.Notes
                .ForMember(el => el.Title,
                     opt => opt.MapFrom(dto => dto.Title))
                .ForMember(command => command.Details,
-                    opt => opt.MapFrom(dto => dto.Details));
+                    opt => opt.MapFrom(dto => dto.Details))
+               .ForMember(el => el.UserId, 
+                    opt => opt.MapFrom(dto => dto.UserId));
         }
     }
 }

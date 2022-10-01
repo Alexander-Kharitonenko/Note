@@ -72,9 +72,11 @@ namespace Note.API.Controllers
             
             var query = _mapper.Map<UpdateNoteCommand>(note);
 
+            query.Id = id;
+
             var data = await _mediator.Send(query);
 
-            return _viewMapper.ShowError(data);
+            return _viewMapper.ShowResult(data);
         }
 
         [HttpDelete("{id}")]

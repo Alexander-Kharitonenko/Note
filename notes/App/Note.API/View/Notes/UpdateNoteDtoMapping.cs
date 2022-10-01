@@ -8,8 +8,8 @@ namespace Note.API.View.Notes
         public UpdateNoteDtoMapping() 
         {
             CreateMap<UpdateNoteDto, UpdateNoteCommand>()
-                .ForMember(el => el.Id,
-                    opt => opt.MapFrom(dto => dto.Id))
+                .ForMember(el => el.isCompleted,
+                    opt => opt.MapFrom(dto => dto.isCompleted))
                 .ForMember(el => el.Title,
                     opt => opt.MapFrom(dto => dto.Title))
                 .ForMember(el => el.Details,

@@ -14,6 +14,7 @@ namespace Commands.Notes.Update
         public ulong UserId { get; set; }
         public string Title { get; set; }
         public string Details { get; set; }
+        public bool isCompleted { get; set; }
         public DateTime? EditTame { get; set; }
     }
 }

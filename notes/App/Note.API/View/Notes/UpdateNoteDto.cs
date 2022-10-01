@@ -5,8 +5,8 @@ namespace Note.API.View.Notes
 {
     public class UpdateNoteDto
     {
-        public ulong Id { get; set; }
         public string Title { get; set; }
         public string Details { get; set; }
+        public bool isCompleted { get; set; }
     }
 }

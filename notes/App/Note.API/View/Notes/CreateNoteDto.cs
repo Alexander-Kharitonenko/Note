@@ -7,5 +7,6 @@ namespace Note.API.View.Notes
     {
         public string Title { get; set; }
         public string Details { get; set; }
+        public ulong UserId { get; set; }
     }
 }

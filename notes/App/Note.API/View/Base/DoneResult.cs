@@ -3,6 +3,6 @@
     public class DoneResult
     {
         public ulong resursId { get; set; }
-        public DateTime Touching { get; set; }
+        public DateTime touching { get; set; }
     }
 }

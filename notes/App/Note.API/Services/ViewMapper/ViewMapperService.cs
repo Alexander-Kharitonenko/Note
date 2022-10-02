@@ -25,16 +25,13 @@ namespace Note.API.Services.ViewMapper
             return new BadRequestObjectResult(new { errorCode = result.ErrorCode.ToString(), errorMessage = result.ErrorMessage , status = result.State.ToString() });
         }
 
-        public ActionResult ShowResult(CommandState result)
+        public ActionResult<TResult> ShowResult<TResult>(CommandState result) where TResult : class
         {
             if (result.State != StateType.error)
             {
-                return new OkObjectResult(
-                    new DoneResult()
-                    {
-                        resursId = result.ResurseId,
-                        Touching = DateTime.UtcNow
-                    });
+                var viewData = new DoneResult() { resursId = result.ResurseId, touching = DateTime.UtcNow };
+
+               return new OkObjectResult(viewData);
             }
 
             return ShowError(result);

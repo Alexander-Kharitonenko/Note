@@ -178,10 +178,9 @@
           "200": {
             "description": "",
             "content": {
-              "application/octet-stream": {
+              "application/json": {
                 "schema": {
-                  "type": "string",
-                  "format": "binary"
+                  "$ref": "#/components/schemas/DoneResult"
                 }
               }
             }
@@ -223,10 +222,9 @@
           "200": {
             "description": "",
             "content": {
-              "application/octet-stream": {
+              "application/json": {
                 "schema": {
-                  "type": "string",
-                  "format": "binary"
+                  "$ref": "#/components/schemas/DoneResult"
                 }
               }
             }
@@ -256,10 +254,9 @@
           "200": {
             "description": "",
             "content": {
-              "application/octet-stream": {
+              "application/json": {
                 "schema": {
-                  "type": "string",
-                  "format": "binary"
+                  "$ref": "#/components/schemas/DoneResult"
                 }
               }
             }
@@ -368,10 +365,9 @@
           "200": {
             "description": "",
             "content": {
-              "application/octet-stream": {
+              "application/json": {
                 "schema": {
-                  "type": "string",
-                  "format": "binary"
+                  "$ref": "#/components/schemas/DoneResult"
                 }
               }
             }
@@ -413,10 +409,9 @@
           "200": {
             "description": "",
             "content": {
-              "application/octet-stream": {
+              "application/json": {
                 "schema": {
-                  "type": "string",
-                  "format": "binary"
+                  "$ref": "#/components/schemas/DoneResult"
                 }
               }
             }
@@ -446,10 +441,9 @@
           "200": {
             "description": "",
             "content": {
-              "application/octet-stream": {
+              "application/json": {
                 "schema": {
-                  "type": "string",
-                  "format": "binary"
+                  "$ref": "#/components/schemas/DoneResult"
                 }
               }
             }
@@ -529,6 +523,20 @@
             "type": "string",
             "format": "date-time",
             "nullable": true
+          }
+        }
+      },
+      "DoneResult": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "resursId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "touching": {
+            "type": "string",
+            "format": "date-time"
           }
         }
       },

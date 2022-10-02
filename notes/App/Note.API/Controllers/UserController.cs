@@ -57,17 +57,17 @@ namespace Note.API.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Create(CreateUserDto user)
+        public async Task<ActionResult<DoneResult>> Create(CreateUserDto user)
         {
             var query = _mapper.Map<CreateUserCommand>(user);
 
             var data = await _mediator.Send(query);
 
-            return _viewMapper.ShowResult(data);
+            return _viewMapper.ShowResult<DoneResult>(data);
         }
 
         [HttpPatch("{id}")]
-        public async Task<ActionResult> Patch(ulong id, UpdateUserDto user)
+        public async Task<ActionResult<DoneResult>> Patch(ulong id, UpdateUserDto user)
         {
             var query = _mapper.Map<UpdateUserCommand>(user);
 
@@ -75,18 +75,18 @@ namespace Note.API.Controllers
 
             var data = await _mediator.Send(query);
 
-            return _viewMapper.ShowResult(data);
+            return _viewMapper.ShowResult<DoneResult>(data);
         }
 
 
         [HttpDelete("{id}")]
-        public async Task<ActionResult> Delete(ulong id)
+        public async Task<ActionResult<DoneResult>> Delete(ulong id)
         {
             var query = new DeleteUserCommand(){ Id = id };
 
             var data = await _mediator.Send(query);
 
-            return _viewMapper.ShowResult(data);
+            return _viewMapper.ShowResult<DoneResult>(data);
         }
     }
 }

@@ -11,7 +11,7 @@ namespace Note.API.Services.ViewMapper
 {
     public interface IViewMapperService
     {
-        public ActionResult ShowResult(CommandState result);
+        public ActionResult<TResult> ShowResult<TResult>(CommandState result) where TResult : class;
 
         public ActionResult<TResult> ShowResult<TResult, TModel>(QueryState<TModel> result) 
             where TResult : class

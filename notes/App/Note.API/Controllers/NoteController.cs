@@ -18,6 +18,7 @@ namespace Note.API.Controllers
 {
     [ApiController]
     [Route("[controller]/[action]")]
+    [Authorize(Roles ="User, Admin")]
     public class NoteController : ControllerBase
     {
         private readonly IMediator _mediator;
@@ -31,7 +32,6 @@ namespace Note.API.Controllers
         }
 
         [HttpGet]
-        [Authorize(Roles = "User")]
         public async Task<ActionResult<ViewListModelDto<ViewNoteModelDto>>> GetAll([OpenApiIgnore]ODataQueryOptions<NoteModel> options)
         {
 

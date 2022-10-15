@@ -11,6 +11,7 @@ namespace Commands.Notes.Create
     {
         public CreateNoteCommandValidator() 
         {
+            //TODO: добавить нормальную валидацию полей
             RuleFor(x => x.Title)
                 .NotEmpty()
                 .MinimumLength(1);

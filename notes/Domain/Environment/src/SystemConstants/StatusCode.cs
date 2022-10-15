@@ -13,6 +13,7 @@ namespace Notes.Environment.SystemConstants
         InvalidData = 601,
         NotAuthorized = 602,
         NotRegistered = 603,
+        NotrefreshToken = 604,
 
         //700-799
         NoteNotFound = 700,

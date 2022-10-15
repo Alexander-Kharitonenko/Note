@@ -14,6 +14,10 @@ using Notes.Environment.Commands;
 using Environment = Notes.Environment.SystemConstants;
 using System.Text;
 using Notes.Environment.Queries;
+using Microsoft.AspNetCore.OData.Query;
+using Microsoft.OData.ModelBuilder;
+using Microsoft.OData.Edm;
+using Microsoft.OData.UriParser;
 
 namespace Note.API.Controllers
 {
@@ -57,13 +61,11 @@ namespace Note.API.Controllers
         }
 
         [HttpPost]
-        [Route("Login")]
+        [Route("login")]
         public async Task<ActionResult<string>> Login([FromBody]ViewLoginModel model)
         {
        
             var query = new FullUserListQuery(){};
-
-
 
             var password = Convert.ToBase64String(Encoding.UTF8.GetBytes(model.Password));
 
@@ -87,6 +89,28 @@ namespace Note.API.Controllers
             var access_toke = new QueryState<string>() { Data = token };
 
             return _viewMapper.ShowResult<string, string>(access_toke);
+        }
+
+        [HttpPost]
+        [Route("refreshToken")]
+        public async Task<ActionResult<string>> RefreshToken(string email)
+        {
+            var data = new ViewRefreshTokenModel()
+            {
+                Email = email
+            };
+            var token = await _authentication.RefreshToken(data, HttpContext);
+
+            if (token == null) 
+            {
+                var result = CommandState.Error(Environment.StatusCode.NotAuthorized);
+                return _viewMapper.ShowError(result);
+            }
+
+            var access_toke = new QueryState<string>() { Data = token };
+
+            return _viewMapper.ShowResult<string, string>(access_toke);
+
         }
 
     }

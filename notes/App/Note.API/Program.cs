@@ -75,6 +75,7 @@ namespace Note.API
 
             builder.Services.AddFluentValidator(new List<Assembly>()
             {
+                Assembly.GetExecutingAssembly(),
                 QueriesAssembly.Value,
                 CommandsAssembly.Value
             });

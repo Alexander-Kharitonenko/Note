@@ -12,6 +12,7 @@ namespace Commands.Users.Update
     {
         public UpdateUserCommandValidator() 
         {
+            //TODO: добавить нормальную валидацию полей
             RuleFor(p => p.Login).Cascade(CascadeMode.Stop)
                 .NotEmpty()
                 .MinimumLength(6);

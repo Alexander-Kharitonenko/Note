@@ -1,4 +1,7 @@
 ﻿using FluentValidation;
+using Fluid.Parser;
+using Notes.Environment.Base;
+using Notes.Environment.SystemConstants;
 using System.Net;
 using System.Text.Json;
 
@@ -28,26 +31,28 @@ namespace Note.API.Middleware
 
         private Task HandleExceptionAsync(HttpContext context, Exception exception) 
         {
+
+         
             var code = HttpStatusCode.InternalServerError;
-            var resulr = string.Empty;
+            var errorMessage = string.Empty;
+            var error = string.Empty;
 
             switch (exception) 
             {
                 case Exception exp:
-                    code = HttpStatusCode.BadRequest;
-                    resulr = JsonSerializer.Serialize(exp.Message);
+                    errorMessage = JsonSerializer.Serialize(exp.Message);
                     break;
             }
 
             context.Response.ContentType = "application/json";
             context.Response.StatusCode = (int)code;
 
-            if (string.IsNullOrEmpty(resulr)) 
+            if (string.IsNullOrEmpty(error)) 
             {
-                resulr = JsonSerializer.Serialize(new { error = exception.Message });
+               error = JsonSerializer.Serialize(new { error = errorMessage, StatusCode = code });
             }
 
-            return context.Response.WriteAsync(resulr);
+            return context.Response.WriteAsync(error);
         }
     }
 }

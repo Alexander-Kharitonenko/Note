@@ -38,7 +38,7 @@
         }
       }
     },
-    "/Auth/Login": {
+    "/Auth/login": {
       "post": {
         "tags": [
           "Auth"
@@ -56,6 +56,37 @@
           "required": true,
           "x-position": 1
         },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Auth/refreshToken": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "operationId": "Auth_RefreshToken",
+        "parameters": [
+          {
+            "name": "email",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          }
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -118,7 +149,8 @@
         "security": [
           {
             "Bearer": [
-              "User"
+              "User",
+              " Admin"
             ]
           }
         ]
@@ -153,7 +185,15 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "User",
+              " Admin"
+            ]
+          }
+        ]
       }
     },
     "/Note/AddNote": {
@@ -185,7 +225,15 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "User",
+              " Admin"
+            ]
+          }
+        ]
       }
     },
     "/Note/Patch/{id}": {
@@ -229,7 +277,15 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "User",
+              " Admin"
+            ]
+          }
+        ]
       }
     },
     "/Note/Delete/{id}": {
@@ -261,7 +317,15 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "User",
+              " Admin"
+            ]
+          }
+        ]
       }
     },
     "/User/GetAll": {
@@ -308,7 +372,15 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "User",
+              " Admin"
+            ]
+          }
+        ]
       }
     },
     "/User/Get/{id}": {
@@ -340,7 +412,15 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "User",
+              " Admin"
+            ]
+          }
+        ]
       }
     },
     "/User/Create": {
@@ -372,7 +452,15 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "User",
+              " Admin"
+            ]
+          }
+        ]
       }
     },
     "/User/Patch/{id}": {
@@ -416,7 +504,15 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "User",
+              " Admin"
+            ]
+          }
+        ]
       }
     },
     "/User/Delete/{id}": {
@@ -448,7 +544,15 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "User",
+              " Admin"
+            ]
+          }
+        ]
       }
     }
   },
@@ -503,6 +607,10 @@
         "additionalProperties": false,
         "properties": {
           "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "userId": {
             "type": "integer",
             "format": "int64"
           },

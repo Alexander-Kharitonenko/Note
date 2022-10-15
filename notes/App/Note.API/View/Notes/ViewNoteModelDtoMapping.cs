@@ -10,6 +10,8 @@ namespace Note.API.View.Notes
             CreateMap<NoteModel, ViewNoteModelDto>()
                 .ForMember(noteModel => noteModel.Id,
                      opt => opt.MapFrom(note => note.Id))
+                .ForMember(noteModel => noteModel.UserId, 
+                     opt => opt.MapFrom(note => note.UserId))
                 .ForMember(noteModel => noteModel.Titel,
                      opt => opt.MapFrom(note => note.Titel))
                  .ForMember(noteModel => noteModel.Detailse,

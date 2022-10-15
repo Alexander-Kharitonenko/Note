@@ -12,15 +12,13 @@ namespace Commands.Notes.Update
     {
         public UpdateNoteCommandValidator() 
         {
-            RuleFor(p => p.Title)
-                .Cascade(CascadeMode.Stop)
-                .NotEmpty()
-                .MinimumLength(1);
+            //TODO: добавить нормальную валидацию полей
 
             RuleFor(p => p.Title)
                 .Cascade(CascadeMode.Stop)
                 .NotEmpty()
                 .MinimumLength(1);
+
         }
     }
 }

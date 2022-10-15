@@ -18,6 +18,7 @@ namespace Note.API.Controllers
 {
     [ApiController]
     [Route("[controller]/[action]")]
+    [Authorize(Roles ="User, Admin")]
     public class UserController : ControllerBase
     {
         private readonly IMediator _mediator;

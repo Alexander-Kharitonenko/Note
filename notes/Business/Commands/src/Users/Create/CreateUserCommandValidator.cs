@@ -13,6 +13,7 @@ namespace Commands.Users.Create
     {
         public CreateUserCommandValidator() 
         {
+            //TODO: добавить нормальную валидацию полей
             RuleFor(p => p.Email).Cascade(CascadeMode.Stop)
                 .NotEmpty()
                 .EmailAddress(EmailValidationMode.AspNetCoreCompatible);
@@ -20,6 +21,10 @@ namespace Commands.Users.Create
             RuleFor(p => p.Password).Cascade(CascadeMode.Stop)
                 .NotEmpty()
                 .MinimumLength(8);
+
+            RuleFor(p => p.Login).Cascade(CascadeMode.Stop)
+               .NotEmpty()
+               .MinimumLength(8);
         }
     }
 }

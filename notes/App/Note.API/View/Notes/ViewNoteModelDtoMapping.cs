@@ -12,9 +12,9 @@ namespace Note.API.View.Notes
                      opt => opt.MapFrom(note => note.Id))
                 .ForMember(noteModel => noteModel.UserId, 
                      opt => opt.MapFrom(note => note.UserId))
-                .ForMember(noteModel => noteModel.Titel,
+                .ForMember(noteModel => noteModel.Title,
                      opt => opt.MapFrom(note => note.Titel))
-                 .ForMember(noteModel => noteModel.Detailse,
+                 .ForMember(noteModel => noteModel.Details,
                      opt => opt.MapFrom(note => note.Detailse))
                  .ForMember(noteModel => noteModel.IsCmpleted,
                      opt => opt.MapFrom(note => note.IsCmpleted))

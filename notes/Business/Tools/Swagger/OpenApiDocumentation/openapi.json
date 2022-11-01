@@ -614,10 +614,10 @@
             "type": "integer",
             "format": "int64"
           },
-          "titel": {
+          "title": {
             "type": "string"
           },
-          "detailse": {
+          "details": {
             "type": "string"
           },
           "isCmpleted": {

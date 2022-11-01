@@ -51,8 +51,6 @@ namespace Note.API.Controllers
 
             var result = await _mediator.Send(query);
 
-            var viewResult = _mapper.Map<ViewNoteModelDto>(result);
-
             return _viewMapper.ShowResult<ViewNoteModelDto, NoteModel>(result);
         }
 

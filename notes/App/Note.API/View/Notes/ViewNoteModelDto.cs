@@ -7,8 +7,8 @@ namespace Note.API.View.Notes
     {
         public ulong Id { get; set; }
         public ulong UserId { get; set; }
-        public string Titel { get; set; }
-        public string Detailse { get; set; }
+        public string Title { get; set; }
+        public string Details { get; set; }
         public bool IsCmpleted { get; set; }
         public DateTime CreateDate { get; set; }
         public DateTime? EditTame { get; set; }

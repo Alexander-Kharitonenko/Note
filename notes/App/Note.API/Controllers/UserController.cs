@@ -43,7 +43,7 @@ namespace Note.API.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ViewUserModelDto> Get(ulong id) 
+        public async Task<ActionResult<ViewUserModelDto>> Get(ulong id) 
         {
             var query = new FindUserQuery()
             {
@@ -52,9 +52,8 @@ namespace Note.API.Controllers
 
             var user = await _mediator.Send(query);
 
-            var result = _mapper.Map<ViewUserModelDto>(user);
+            return _viewMapper.ShowResult<ViewUserModelDto, UserModel>(user);
 
-            return result;
         }
 
         [HttpPost]

@@ -38,14 +38,8 @@ namespace Note.API
 
             builder.Services.Configure<AuthOptions>(builder.Configuration.GetSection("JWT"));
 
-            builder.Services.AddControllers().AddOData(options => 
-            {
-                options.Select();
-                options.OrderBy();
-                options.Filter();
-                options.SkipToken();
-            });
-          
+            builder.Services.AddControllers().AddOData();
+
             builder.Services.AddOpenApiDocument(document =>
             {
                 document.SchemaType = SchemaType.OpenApi3;
@@ -64,7 +58,6 @@ namespace Note.API
             }
             );
 
-            var x = Assembly.GetExecutingAssembly();
 
             builder.Services.AddAutoMapper(new Assembly[] {
                 Assembly.GetExecutingAssembly(),
@@ -89,7 +82,7 @@ namespace Note.API
                  options.AddPolicy("AllowAll",
                             opt =>
                             {
-                                opt.WithOrigins("http://localhost:3200/");
+                                opt.WithOrigins("http://localhost:3200/", "https://top-notes.vercel.app/", "https://notereactfeddim72.netlify.app");
                                 opt.AllowAnyHeader();
                                 opt.AllowAnyMethod();
                                 opt.AllowAnyOrigin();

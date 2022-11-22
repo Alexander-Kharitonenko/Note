@@ -82,7 +82,7 @@ namespace Note.API
                  options.AddPolicy("AllowAll",
                             opt =>
                             {
-                                opt.WithOrigins("http://localhost:3200/", "https://top-notes.vercel.app/", "https://notereactfeddim72.netlify.app");
+                                opt.WithOrigins("http://localhost:3200/", "https://top-notes.vercel.app/", "https://notereactfeddim72.netlify.app/");
                                 opt.AllowAnyHeader();
                                 opt.AllowAnyMethod();
                                 opt.AllowAnyOrigin();

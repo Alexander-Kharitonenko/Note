@@ -16,7 +16,7 @@ namespace Note.API.View.Notes
                      opt => opt.MapFrom(note => note.Titel))
                  .ForMember(noteModel => noteModel.Details,
                      opt => opt.MapFrom(note => note.Detailse))
-                 .ForMember(noteModel => noteModel.IsCmpleted,
+                 .ForMember(noteModel => noteModel.IsCompleted,
                      opt => opt.MapFrom(note => note.IsCmpleted))
                  .ForMember(noteModel => noteModel.CreateDate,
                      opt => opt.MapFrom(note => note.CreateDate))

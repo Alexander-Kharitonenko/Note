@@ -620,7 +620,7 @@
           "details": {
             "type": "string"
           },
-          "isCmpleted": {
+          "isCompleted": {
             "type": "boolean"
           },
           "createDate": {

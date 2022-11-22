@@ -43,7 +43,7 @@ namespace Commands.Notes.Update
 
             note.Titel = request.Title;
             note.Detailse = request.Details;
-            note.IsCmpleted = request.isCompleted;
+            note.IsCompleted = request.isCompleted;
             note.EditTame = DateTime.UtcNow;
 
             var result = _context.Notes.Update(note);

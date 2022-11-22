@@ -9,7 +9,7 @@ namespace Note.API.View.Notes
         public ulong UserId { get; set; }
         public string Title { get; set; }
         public string Details { get; set; }
-        public bool IsCmpleted { get; set; }
+        public bool IsCompleted { get; set; }
         public DateTime CreateDate { get; set; }
         public DateTime? EditTame { get; set; }
     }

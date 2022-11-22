@@ -22,7 +22,7 @@ namespace Queries.src.Notes
                .ForMember(noteModel => noteModel.Detailse,
                    opt => opt.MapFrom(note => note.Detailse))
                .ForMember(noteModel => noteModel.IsCmpleted, 
-                   opt => opt.MapFrom(note => note.IsCmpleted))
+                   opt => opt.MapFrom(note => note.IsCompleted))
                .ForMember(noteModel => noteModel.CreateDate,
                    opt => opt.MapFrom(note => note.CreateDate))
                .ForMember(noteModel => noteModel.EditTame,
